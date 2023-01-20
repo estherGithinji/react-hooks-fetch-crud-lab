@@ -8,7 +8,7 @@ function QuestionItem({ question, onDelete }) {
     <option key={index} value={index}>
       {answer}
     </option>
-  ));
+  ))
 
   function handleDeleteClick() {
     fetch(`http://localhost:4000/questions/${id}`, {

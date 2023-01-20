@@ -22,10 +22,12 @@ function QuestionForm({addQuestion}) {
     // console.log(formData);
     const questionData = {
       prompt: formData.prompt,
-      answer1: formData.answer1,
-      answer2: formData.answer2,
-      answer3: formData.answer3,
-      answer4: formData.answer4,
+      answers: [
+        formData.answer1,
+        formData.answer2,
+        formData.answer3,
+        formData.answer4,
+      ],
       correctIndex: formData.correctIndex
     };
 
@@ -34,7 +36,8 @@ function QuestionForm({addQuestion}) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-      }
+      },
+      body: JSON.stringify(questionData),
     })
     .then((res) => res.json())
     .then((data) => addQuestion(data))
